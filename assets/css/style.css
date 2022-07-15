@@ -1,0 +1,43 @@
+/* Universal Selector */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+ }
+
+ /* Element Selectors */
+ h1 {
+    font-size: 30px;
+    font-size: 3vw;
+    font-weight: bold;
+    color: #094067;
+    text-align: center
+ }
+
+ h2 { 
+    font-size: 1.5vw;
+    font-weight: normal;
+    padding: 50px 0 50px 0;
+    text-align: center;
+    line-height: 30px;
+    color: #5f6c7b
+ }
+
+ button {
+    background-color: #3da9fc;
+    margin-left: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fffffe;
+ }
+ button:hover {
+    box-shadow: 0 12px 16px 0 #ef4565, 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+ /* Class Selectors */
+ .Landing-Page {
+    padding: 20%;
+   
+ }
+
+ /* ID Selectors */
