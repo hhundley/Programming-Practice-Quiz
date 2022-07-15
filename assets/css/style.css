@@ -6,26 +6,33 @@
  }
 
  /* Element Selectors */
+body {
+    text-align: center;
+}
+
+nav {
+    padding:15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+ 
  h1 {
     font-size: 30px;
     font-size: 3vw;
     font-weight: bold;
     color: #094067;
-    text-align: center
  }
 
  h2 { 
     font-size: 1.5vw;
     font-weight: normal;
     padding: 50px 0 50px 0;
-    text-align: center;
     line-height: 30px;
     color: #5f6c7b
  }
 
  button {
     background-color: #3da9fc;
-    margin-left: 50%;
     border-radius: 10px;
     padding: 10px;
     color: #fffffe;
@@ -41,3 +48,9 @@
  }
 
  /* ID Selectors */
+ #high-scores {
+    float: left;
+ }
+ #timer {
+    float: right;
+ }
