@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+section {
+    padding:10%;
+}
+
 nav {
     padding:15px;
     font-family: 'Courier New', Courier, monospace;
@@ -42,12 +46,17 @@ nav {
   }
 
  /* Class Selectors */
- .Landing-Page {
-    padding: 20%;
-   
- }
+ 
 
  /* ID Selectors */
+ #Landing-Page {
+
+}
+
+#Quiz {
+   display: none; 
+}
+
  #high-scores {
     float: left;
  }
