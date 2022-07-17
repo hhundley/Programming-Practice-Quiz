@@ -19,6 +19,10 @@ nav {
     font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
 }
+
+p {
+    color: #5f6c7b
+}
  
  h1 {
     font-size: 30px;
@@ -35,6 +39,10 @@ nav {
     color: #5f6c7b
  }
 
+ hr {
+    margin-top: 10px;
+ }
+
  button {
     background-color: #3da9fc;
     border-radius: 10px;
@@ -49,12 +57,14 @@ nav {
  
 
  /* ID Selectors */
- #Landing-Page {
-
-}
-
 #Quiz {
    display: none; 
+   text-align: left;
+   padding-top: 30px;
+}
+
+#mission-complete {
+    display:none;
 }
 
  #high-scores {
@@ -62,4 +72,15 @@ nav {
  }
  #timer {
     float: right;
+ }
+
+ #score, #save-line {
+    padding: 5px 0 5px 0;
+ }
+
+ #save-area {
+    width:50px;
+    height:15px;
+    font-size: 12px;
+    color: #ef4565;
  }
