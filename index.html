@@ -13,7 +13,6 @@
 
         <header>
             <nav>
-                <div id = high-scores><a href="#saved-scores">High Scores</a></div>
                 <div id="timer"></div>
             </nav>
         </header>
@@ -26,26 +25,27 @@
         </section>
 
         <section id = "Quiz">
-            <h2>[placeholder]</h2>
-            <div id = "option-1"><button></button></div>
-            <div id = "option-2"><button></button></div>
-            <div id = "option-3"><button></button></div>
-            <div id = "option-4"><button></button></div>
+            <h2 id = "question"></h2>
+            <div><button id = "option-1"></button></div>
+            <div><button id = "option-2"></button></div>
+            <div><button id = "option-3"></button></div>
+            <div><button id = "option-4"></button></div>
             <hr></hr>
-            <h2></h2>
+            <h2 id = "message"></h2>
+            <button id = "next">Next</button>
         </section>
 
         <section id = "mission-complete">
             <h1>Mission Complete</h1>
-            <div id = "score"><p>[placeholder]</p></div>
+            <p id = "score"></p>
             <div id = "save-line"><p>Enter your initials: <textarea id="save-area" name="initials"></textarea></p></div>
             <button id="save-button">save</button>  
         </section>
 
         <section id = "save-states">
             <ol id="leaderboard-list"></ol>
-            <button id="back-button">save</button>  
-            <button id="clear-button">save</button>  
+            <button id="back-button">Play Again</button>  
+            <button id="clear-button">Clear Scores</button>  
         </section>
         
 

@@ -48,6 +48,8 @@ p {
     border-radius: 10px;
     padding: 10px;
     color: #fffffe;
+    width:150px;
+    margin:5px;
  }
  button:hover {
     box-shadow: 0 12px 16px 0 #ef4565, 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -58,18 +60,14 @@ p {
 
  /* ID Selectors */
 #Quiz {
-   display: none; 
    text-align: left;
    padding-top: 30px;
 }
 
-#mission-complete {
+#Quiz, #mission-complete, #save-states {
     display:none;
 }
 
- #high-scores {
-    float: left;
- }
  #timer {
     float: right;
  }
@@ -83,4 +81,9 @@ p {
     height:15px;
     font-size: 12px;
     color: #ef4565;
+ }
+
+ #next {
+   /* display:none; */
+   background-color: #90b4ce;
  }
