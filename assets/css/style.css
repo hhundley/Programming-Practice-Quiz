@@ -43,6 +43,10 @@ p {
     margin-top: 10px;
  }
 
+ ul {
+   padding: 20px;
+ }
+
  button {
     background-color: #3da9fc;
     border-radius: 10px;
