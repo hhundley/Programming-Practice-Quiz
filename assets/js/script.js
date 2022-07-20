@@ -1,3 +1,4 @@
+// Declaring variables 
 var timerEl = document.getElementById('timer');
 var landingEl = document.getElementById('Landing-Page');
 var startBtnEl = document.getElementById('start-button');
@@ -14,10 +15,10 @@ var leaderListEl = document.getElementById('leaderboard-list');
 var playAgainEl = document.getElementById('play-again');
 var score = 0;
 
-// create timer
-
+// create timer variable
 var timeInterval = null;
 
+// create a function to display and add functionality to timer
 function countdown() {
     if (timeInterval == null) {
         var timeLeft = 30;
@@ -48,12 +49,11 @@ startBtnEl.onclick = () =>{
     landingEl.style.display = "none";
     quizEl.style.display = "block";
     
-    // Calling countdown function
-    countdown();
-
+// Calling countdown function
+countdown();
 }
 
-// handle questions
+// Create an array of questions and give objects properties
 var questions = [
     {   
         question:"Commonly used data types DO NOT include:" ,
@@ -77,7 +77,7 @@ var questions = [
         answer:"quotes"
     },
 ]
-// display questions and answer options
+// create variables for questions and option elements
 var questionEl = document.getElementById('question');
 var option1El = document.getElementById('option-1');
 var option2El = document.getElementById('option-2');
@@ -97,9 +97,9 @@ option4El.innerHTML = questions[i].choices[3];
 // call function to set the initial question
 setQuestion();
 
-// display next question upon clicking next
-    
+// handle next button
 nextBtnEl.onclick = () =>{
+    // handles next button on last question
     if(i>2){
         timerEl.style.display = "none";
         stop();
@@ -110,6 +110,7 @@ nextBtnEl.onclick = () =>{
         console.log(final);
         scoreLineEl.innerHTML = "Score: " + final;
 
+    // display next question upon clicking next
     } else{
         i++;
         console.log(i);
@@ -127,6 +128,7 @@ console.log(option1El.innerHTML);
 
 // handling answer selection & storing score
 option1El.onclick = () =>{
+    // add to score if correct
     if(option1El.innerHTML === questions[i].answer) {
         messageEl.innerHTML = "Correct!";
         score+=.25
@@ -139,6 +141,7 @@ option1El.onclick = () =>{
     console.log(questions[i].answer);
  }
  option2El.onclick = () =>{
+    // add to score if correct
     if(option2El.innerHTML === questions[i].answer) {
         messageEl.innerHTML = "Correct!";
         score+=.25
@@ -150,6 +153,7 @@ option1El.onclick = () =>{
     option4El.disabled = true;
  }
  option3El.onclick = () =>{
+    // add to score if correct
     if(option3El.innerHTML === questions[i].answer) {
         messageEl.innerHTML = "Correct!";
         score+=.25
@@ -161,6 +165,7 @@ option1El.onclick = () =>{
     option4El.disabled = true;
  }
  option4El.onclick = () =>{
+    // add to score if correct
     if(option4El.innerHTML === questions[i].answer) {
         messageEl.innerHTML = "Correct!";
         score+=.25
@@ -172,7 +177,7 @@ option1El.onclick = () =>{
     option1El.disabled = true;
  }
 
-//  handle saving scores
+//  handle saving scores and displaying in list
  saveBtnEl.onclick = () =>{
     var entry = initials.value;
     var final = score*100 + "%"
@@ -184,29 +189,51 @@ option1El.onclick = () =>{
     li.textContent = localStorage.getItem("Save-State")
     leaderListEl.appendChild(li);
 
+    // Convert list  into an array to be stored in local storage and calling functions to form array
     var listItems = document.getElementById('leaderboard-list').getElementsByTagName('li'),
-
     scoreArray = map(listItems, getText);
 
-function map(arrayLike, fn) {
-    var ret = [], i = -1, len = arrayLike.length;
-    while (++i < len) ret[i] = fn(arrayLike[i]);
-    return ret;
-}
+    // create a function to map list of scores into an array
+    function map(arrayLike, fn) {
+        var ret = [], i = -1, len = arrayLike.length;
+        while (++i < len) ret[i] = fn(arrayLike[i]);
+        return ret;
+    }
+        localStorage.setItem("savedArray",JSON.stringify(scoreArray));
+
+    // function to get the text to be put into array
+    function getText(node) {
+        if (node.nodeType === 3) return node.data;
+        var txt = '';
+        if (node = node.firstChild) do {
+            txt += getText(node);
+        } while (node = node.nextSibling);
+        return txt;
+    }
     localStorage.setItem("savedArray",JSON.stringify(scoreArray));
+    // call init function
+    init();
+ }
+// create init function to display stored array upon refreshing page
+function init() {
+    var storedScores = JSON.parse(localStorage.getItem("savedArray"));
+    if (storedScores !== null) {
+        scoreArray = storedScores
+    }
 
+    // function to make initial stored array into a list to be displayed on leaderboards
+    function initList(array) {
+            let list = null;
+            for (let i = array.length - 1; i >= 0; i--) {
+                list = { value: array[i], rest: list };
+            }
+            return list;
+        }
+        console.log(initList(storedScores));
 
-function getText(node) {
-    if (node.nodeType === 3) return node.data;
-    var txt = '';
-    if (node = node.firstChild) do {
-        txt += getText(node);
-    } while (node = node.nextSibling);
-    return txt;
 }
-localStorage.setItem("savedArray",JSON.stringify(scoreArray));
 
-}
+// handle play again button to restart the game with a new countdown
  playAgainEl.onclick = () =>{
     score = 0;
     i = 0;
